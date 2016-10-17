@@ -195,6 +195,25 @@ typedef enum _sai_switch_restart_type_t
 } sai_switch_restart_type_t;
 
 /**
+ * @brief Attribute data for #SAI_SWITCH_ATTR_QOS_HIERARCHY_SUPPORT_TYPE,
+ */
+typedef enum _sai_switch_hqos_type_t
+{
+    /** NPU doesn't support hierarchical qos*/
+    SAI_SWITCH_HQOS_TYPE_NONE = 0,
+
+    /** NPU supports hierarchical qos,
+      * create/remove/modify hierarchy does not supported.
+      * set/get attributes allowed. */
+    SAI_SWITCH_HQOS_TYPE_FIXED = 1,
+
+    /** NPU supports hierarchical qos.
+      * Supports create/remove/set/get API's*/
+    SAI_SWITCH_HQOS_TYPE_FLEXIBLE = 2,
+
+} sai_switch_hqos_type_t;
+
+/**
  * @brief Attribute Id in sai_set_switch_attribute() and
  * sai_get_switch_attribute() calls
  */
@@ -478,6 +497,15 @@ typedef enum _sai_switch_attr_t
      * @flags READ_ONLY
      */
     SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_TRAFFIC_CLASSES,
+ 
+    /**
+     * @brief Type of Hierarchycal QOS supported
+     *
+     * @type sai_switch_hqos_type_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_QOS_HIERARCHY_SUPPORT_TYPE,
+
 
     /**
      * @brief HQOS - Maximum Number of Hierarchy scheduler
