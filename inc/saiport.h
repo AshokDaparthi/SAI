@@ -1070,6 +1070,24 @@ typedef enum _sai_port_attr_t
     SAI_PORT_ATTR_EEE_WAKE_TIME,
 
     /**
+     * @brief L2 broadcast flood control to port
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default true
+     */
+    SAI_PORT_ATTR_BCAST_FLOOD_ENABLE,
+
+    /**
+     * @brief L2 multicast flood control to port
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default true
+     */
+    SAI_PORT_ATTR_MCAST_FLOOD_ENABLE,
+ 
+    /**
      * @brief End of attributes
      */
     SAI_PORT_ATTR_END,
